@@ -9,6 +9,22 @@ public class Sensor : MonoBehaviour
     private bool isPushing = false;
     private Tile tile;
 
+
+    private void Update()
+    {
+        if (touch)
+        {
+            if (isPushing)
+            {
+                tile.countDown();
+            }
+            else
+            {
+                tile.resetTimer();
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print(this.name + " has entered block " + collision.gameObject.name);
@@ -18,19 +34,11 @@ public class Sensor : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         touch = true;
-        if (isPushing)
-        {
-            tile.countDown();
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         touch = false;
-        if (!isPushing)
-        {
-            tile.resetTimer();
-        }
     }
 
     public void setPosition(float x, float y)

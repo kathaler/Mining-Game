@@ -30,6 +30,7 @@ public class Tile : MonoBehaviour
 
     public void countDown()
     {
+        print(this.gameObject.name + " is counting down: " + current_time);
         current_time -= Time.deltaTime;
         text.text = Math.Round(current_time, 2).ToString();
     }

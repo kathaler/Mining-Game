@@ -35,21 +35,33 @@ public class Player : MonoBehaviour
 
         if(up.isTriggered() && vert == 1f)
         {
+            left.setPush(false);
+            right.setPush(false);
+            down.setPush(false);
             up.setPush(true);
             canMove = false;
         }
         else if (down.isTriggered() && vert == -1f)
         {
+            left.setPush(false);
+            right.setPush(false);
+            up.setPush(false);
             down.setPush(true);
             canMove = false;
         }
         else if (left.isTriggered() && horiz == -1f)
         {
+            right.setPush(false);
+            up.setPush(false);
+            down.setPush(false);
             left.setPush(true);
             canMove = false;
         }
         else if (right.isTriggered() && horiz == 1f)
         {
+            left.setPush(false);
+            down.setPush(false);
+            up.setPush(false);
             right.setPush(true);
             canMove = false;
         }
@@ -69,7 +81,7 @@ public class Player : MonoBehaviour
             {
                 movePoint.position += new Vector3(horiz, 0f, 0f);
             }
-            if (Mathf.Abs(vert) == 1f)
+            else if (Mathf.Abs(vert) == 1f)
             {
                 movePoint.position += new Vector3(0f, vert, 0f);
             }
