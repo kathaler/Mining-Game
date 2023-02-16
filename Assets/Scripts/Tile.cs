@@ -28,13 +28,13 @@ public class Tile : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void countDown()
     {
         current_time -= Time.deltaTime;
-        text.text = Math.Round(current_time,2).ToString();
+        text.text = Math.Round(current_time, 2).ToString();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void resetTimer()
     {
         current_time = time;
         text.text = "";

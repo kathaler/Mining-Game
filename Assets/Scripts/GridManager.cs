@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private int _width, _height;
-    [SerializeField] private Tile _tilePrefab;
+    [SerializeField] private Chunk _chunk;
     [SerializeField] private Camera _cam;
     private int cam_x;
     private int cam_y;
@@ -14,7 +14,7 @@ public class GridManager : MonoBehaviour
     {
         cam_x = (int)(_cam.transform.position.x);
         cam_y = (int)(_cam.transform.position.y);
-        GenerateGrid();
+        ArrayList start_chunk = _chunk.GenerateChunk(_width, _height, _cam);
     }
 
     private void Update()
@@ -82,22 +82,8 @@ public class GridManager : MonoBehaviour
         //}
     }
 
-    void GenerateGrid()
-    {
-        for(int i = 0; i < _width + 5; i++)
-        {
-            for(int j = 0; j < _height + 2; j++)
-            {
-                
-                    int x = i - (int)(_cam.aspect * _cam.orthographicSize) - 2;
-                    int y = j - (int)_cam.orthographicSize;
-                    var spawnedTile = Instantiate(_tilePrefab,
-                        new Vector3(x, y), Quaternion.identity);
-                    spawnedTile.name = $"Tile {x} {y}";
-
-
-            }
-        }
-
-    }
+    //void GenerateGrid()
+    //{
+    //    ArrayList chunk = Chunk.GenerateChunk(_width, _height, _cam, _tilePrefab);
+    //}
 }

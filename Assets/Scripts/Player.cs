@@ -4,41 +4,75 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 7f;
-    public GameObject range;
+    public float moveSpeed = 5f;
+    public Transform movePoint;
+    private float vert;
+    private float horiz;
+    Sensor up, down, left, right;
 
-    float halfScreenHorizontal;
-    float playerHalfWidth;
+    private bool canMove = false;
 
-    private Vector2 movement = new Vector2();
-    Rigidbody2D rb;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        playerHalfWidth = transform.localScale.x / 2;
-        halfScreenHorizontal = Camera.main.aspect * Camera.main.orthographicSize;
-        rb = GetComponent<Rigidbody2D>();
+        movePoint.parent = null;
+        up = GameObject.Find("Up").GetComponent<Sensor>();
+        down = GameObject.Find("Down").GetComponent<Sensor>();
+        left = GameObject.Find("Left").GetComponent<Sensor>();
+        right = GameObject.Find("Right").GetComponent<Sensor>();
     }
-
-    private void FixedUpdate()
+    private void Update()
     {
-        GetInput();
-        MoveCharacter(movement);
-        range.transform.position = transform.position;
-    }
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-    private void MoveCharacter(Vector2 movementVector)
-    {
-        movementVector.Normalize();
-        // move the RigidBody2D instead of moving the Transform
-        rb.velocity = movementVector * speed;
-    }
+        up.setPosition(this.transform.position.x, this.transform.position.y + 1);
+        down.setPosition(this.transform.position.x, this.transform.position.y - 1);
+        left.setPosition(this.transform.position.x - 1, this.transform.position.y);
+        right.setPosition(this.transform.position.x + 1, this.transform.position.y);
 
-    private void GetInput()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-    }
+        vert = Input.GetAxisRaw("Vertical");
+        horiz = Input.GetAxisRaw("Horizontal");
 
+
+        if(up.isTriggered() && vert == 1f)
+        {
+            up.setPush(true);
+            canMove = false;
+        }
+        else if (down.isTriggered() && vert == -1f)
+        {
+            down.setPush(true);
+            canMove = false;
+        }
+        else if (left.isTriggered() && horiz == -1f)
+        {
+            left.setPush(true);
+            canMove = false;
+        }
+        else if (right.isTriggered() && horiz == 1f)
+        {
+            right.setPush(true);
+            canMove = false;
+        }
+        else
+        {
+            left.setPush(false);
+            right.setPush(false);
+            up.setPush(false);
+            down.setPush(false);
+            canMove = true;
+        }
+
+
+        if (canMove && Vector3.Distance(transform.position, movePoint.position) <= .05)
+        {
+            if (Mathf.Abs(horiz) == 1f)
+            {
+                movePoint.position += new Vector3(horiz, 0f, 0f);
+            }
+            if (Mathf.Abs(vert) == 1f)
+            {
+                movePoint.position += new Vector3(0f, vert, 0f);
+            }
+        }
+    }
 }
