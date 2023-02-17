@@ -27,7 +27,7 @@ public class Sensor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(this.name + " has entered block " + collision.gameObject.name);
+        //print(this.name + " has entered block " + collision.gameObject.name);
         tile = collision.gameObject.GetComponent<Tile>();
     }
 
