@@ -7,13 +7,14 @@ using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
-    public float time = 10;
     private float current_time;
-    public TextMeshPro text;
-    public Sprite[] sprites;
     private SpriteRenderer r;
     private int[] pos;
     private int face;
+
+    public float time = 10;
+    public TextMeshPro text;
+    public Sprite[] sprites;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class Tile : MonoBehaviour
         text.text = "";
 
         r = this.GetComponent<SpriteRenderer>();
-        r.sprite = sprites[0];
+        r.sprite = sprites[4];
     }
 
     void Update()

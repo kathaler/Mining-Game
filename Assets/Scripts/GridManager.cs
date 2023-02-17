@@ -58,50 +58,120 @@ public class GridManager : MonoBehaviour
 
         print("Tile destroyed: " + x + ", " + y);
 
-        if(x+1 < chunk_size && tiles[x+1, y] != null)
+        if (withinBounds(x+1) && tiles[x + 1, y] != null)
         {
-            tiles[x+1, y].setFace(4);
+            print("Checking RIGHT tile: ");
+            checkSurroundingTile(x + 1, y, tiles);
         }
-        if (x - 1 >= 0 && tiles[x - 1, y] != null)
+        if (withinBounds(x-1) && tiles[x - 1, y] != null)
         {
-            tiles[x-1, y].setFace(5);
+            print("\nChecking LEFT tile: ");
+            checkSurroundingTile(x - 1, y, tiles);
         }
-        if (y + 1 < chunk_size && tiles[x, y+1] != null)
+        if (withinBounds(y+1) && tiles[x, y + 1] != null)
         {
-            if (tiles[x, y + 1].getFace() != 0)
-            {
-                if (tiles[x - 1, y + 1] != null)
-                {
-                    tiles[x, y + 1].setFace(8);
-                }
-                else
-                {
-                    tiles[x, y + 1].setFace(6);
-                }
-            }
-            else
-            {
-                tiles[x, y + 1].setFace(7);
-            }
+            print("\nChecking UP tile: ");
+            checkSurroundingTile(x, y + 1, tiles);
         }
-        if (y - 1 >= 0 && tiles[x, y-1] != null)
+        if (withinBounds(y-1) && tiles[x, y - 1] != null)
         {
-            if(tiles[x, y - 1].getFace() != 0)
-            {
-                if (tiles[x-1,y-1] != null)
-                {
-                    tiles[x, y - 1].setFace(3);
-                }
-                else
-                {
-                    tiles[x, y - 1].setFace(1);
-                }
-            }
-            else
-            {
-                tiles[x, y - 1].setFace(2);
-            }
+            print("\nChecking DOWN tile: ");
+            checkSurroundingTile(x, y - 1, tiles);
         }
 
+    }
+
+    // Focuses on one of the tiles that is around the destroyed tile
+    // Checks that tile for it's surround tiles
+    // puts all 4 tiles in an array
+    private void checkSurroundingTile(int x, int y, Tile[,] tiles)
+    {
+        Tile up = null;
+        Tile down = null;
+        Tile left = null;
+        Tile right = null;
+        if (withinBounds(y + 1))
+        {
+            up = tiles[x, y + 1];
+        }
+        if (withinBounds(y - 1))
+        {
+            down = tiles[x, y - 1];
+        }
+        if (withinBounds(x + 1))
+        {
+            right = tiles[x+1, y];
+        }
+        if (withinBounds(x - 1))
+        {
+            left = tiles[x-1, y];
+        }
+
+        Tile[] surroundingTiles = new Tile[] { up, down, left, right };
+
+        int sum = 0;
+        for(int i = 0; i < 4; i++)
+        {
+            if (surroundingTiles[i] == null)
+            {
+                sum += (int)Mathf.Pow(3, i);
+                print("tile: " + i + " adding: " + sum);
+            }
+            else
+            {
+                print(surroundingTiles[i].name);
+            }
+        }
+        assignFaceToTile(tiles[x, y], sum);
+    }
+
+    private bool withinBounds(int i)
+    {
+        return i >= 0 && i < chunk_size;
+    }
+
+    private void assignFaceToTile(Tile t, int value)
+    {
+        switch (value)
+        {
+            case 0:
+                t.setFace(0);
+                break;
+            case 1:
+                // up
+                t.setFace(1);
+                break;
+            case 3:
+                // down
+                t.setFace(7);
+                break;
+            case 9:
+                // left
+                t.setFace(3);
+                break;
+            case 10:
+                // up left
+                t.setFace(0);
+                break;
+            case 12:
+                // down left
+                t.setFace(6);
+                break;
+            case 27:
+                // right
+                t.setFace(5);
+                break;
+            case 28:
+                // up right
+                t.setFace(2);
+                break;
+            case 30:
+                // down right
+                t.setFace(8);
+                break;
+            default:
+                print("ERROR, no case was found");
+                break;
+        }
     }
 }
