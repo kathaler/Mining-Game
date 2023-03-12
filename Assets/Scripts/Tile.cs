@@ -9,8 +9,10 @@ public class Tile : MonoBehaviour
 {
     private float current_time;
     private SpriteRenderer r;
-    private int[] pos;
+    private Vector2 globalPosition;
+    //private Vector2 localPosition;
     private int face;
+    private bool destroyed = false;
 
     public float time = 10;
     public TextMeshPro text;
@@ -30,7 +32,8 @@ public class Tile : MonoBehaviour
         if(current_time <= 0)
         {
             Blackboard.DestroyTile(this);
-            Destroy(gameObject);
+            this.Deactivate();
+            this.Destroyed();
         }
     }
 
@@ -47,15 +50,25 @@ public class Tile : MonoBehaviour
         text.text = "";
     }
 
-    public void setPosition(int[] p)
+    public void setGlobalPosition(Vector2 p)
     {
-        this.pos = p; 
+        this.globalPosition = p; 
     }
 
-    public int[] GetPosition()
+    public Vector2 GetGlobalPosition()
     {
-        return pos;
+        return globalPosition;
     }
+
+    //public Vector2 setLocalPosition(int[] p)
+    //{
+    //    this.localPosition = p;
+    //}
+
+    //public int[] getLocalPosition()
+    //{
+    //    return localPosition;
+    //}
 
     public void setFace(int face)
     {
@@ -66,5 +79,34 @@ public class Tile : MonoBehaviour
     public int getFace()
     {
         return face;
+    }
+
+    public bool IsOutOfView(Vector2 pos)
+    {
+        if(Math.Abs(this.globalPosition.x - pos.x) > 10 || Math.Abs(this.globalPosition.y - pos.y) > 10 )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void Activate()
+    {
+        this.gameObject.SetActive(true);
+    }
+    public void Deactivate()
+    {
+        this.gameObject.SetActive(false);
+    }
+    public void Destroyed()
+    {
+        this.destroyed = true;
+    }
+    public bool WasDestroyed()
+    {
+        return this.destroyed;
     }
 }

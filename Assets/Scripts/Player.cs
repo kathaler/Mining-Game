@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
         up.setPosition(this.transform.position.x, this.transform.position.y + 1);
         down.setPosition(this.transform.position.x, this.transform.position.y - 1);
         left.setPosition(this.transform.position.x - 1, this.transform.position.y);
@@ -79,12 +77,27 @@ public class Player : MonoBehaviour
         {
             if (Mathf.Abs(horiz) == 1f)
             {
+                Blackboard.MovePlayer();
                 movePoint.position += new Vector3(horiz, 0f, 0f);
             }
             else if (Mathf.Abs(vert) == 1f)
             {
+                Blackboard.MovePlayer();
                 movePoint.position += new Vector3(0f, vert, 0f);
             }
+
         }
+
+
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+    }
+    public int GetX()
+    {
+        return (int)this.transform.position.x;
+    }
+    public int GetY()
+    {
+        return (int)this.transform.position.y;
     }
 }

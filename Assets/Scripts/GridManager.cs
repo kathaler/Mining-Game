@@ -11,18 +11,19 @@ public class GridManager : MonoBehaviour
     public int chunk_size;
     public ChunkGenerator chunkGenerator;
     private Chunk start_chunk;
+    private ArrayList chunks;
     public Tile tile;
 
     private void Start()
     {
         cam_x = (int)(_cam.transform.position.x);
         cam_y = (int)(_cam.transform.position.y);
-        start_chunk = chunkGenerator.GenerateChunk(tile, _cam, chunk_size, new int[] { 0, 0 });
+        start_chunk = chunkGenerator.GenerateChunk(tile, _cam, chunk_size, new int[] { -chunk_size/2, 0 });
     }
 
     private void Update()
     {
-        int[] pos = Blackboard.wasTileDestoryed();
+        Vector2 pos = Blackboard.wasTileDestoryed();
         if(pos != null)
         {
             UpdateChunk(start_chunk, pos);
@@ -50,32 +51,26 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    private void UpdateChunk(Chunk chunk, int[] pos)
+    private void UpdateChunk(Chunk chunk, Vector2 pos)
     {
         Tile[,] tiles = chunk.GetTiles();
-        int x = pos[0];
-        int y = pos[1];
-
-        print("Tile destroyed: " + x + ", " + y);
+        int x = (int)pos.x;
+        int y = (int)pos.y;
 
         if (withinBounds(x+1) && tiles[x + 1, y] != null)
         {
-            print("Checking RIGHT tile: ");
             checkSurroundingTile(x + 1, y, tiles);
         }
         if (withinBounds(x-1) && tiles[x - 1, y] != null)
         {
-            print("\nChecking LEFT tile: ");
             checkSurroundingTile(x - 1, y, tiles);
         }
         if (withinBounds(y+1) && tiles[x, y + 1] != null)
         {
-            print("\nChecking UP tile: ");
             checkSurroundingTile(x, y + 1, tiles);
         }
         if (withinBounds(y-1) && tiles[x, y - 1] != null)
         {
-            print("\nChecking DOWN tile: ");
             checkSurroundingTile(x, y - 1, tiles);
         }
 
@@ -115,7 +110,6 @@ public class GridManager : MonoBehaviour
             if (surroundingTiles[i] == null)
             {
                 sum += (int)Mathf.Pow(3, i);
-                print("tile: " + i + " adding: " + sum);
             }
             else
             {
