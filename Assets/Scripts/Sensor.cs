@@ -29,7 +29,6 @@ public class Sensor : MonoBehaviour
     {
         if(collision.tag == "Wall")
         {
-            print("Here");
         }
         else if(collision.tag == "Tile")
         {

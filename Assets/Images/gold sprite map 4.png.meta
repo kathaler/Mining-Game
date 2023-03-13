@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a57a88d91d064d018fd5ff6cc1db1bb
+guid: e4a37d315095f47c98c8147a42e1a49c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -155,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28ee46c1eada5441390cf355589c6fd3
-      internalID: -591483186
+      spriteID: 5d4427a1ea26d4135a96666cbc8e776c
+      internalID: -1297778411
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 313a4ff48fca44ceda0b4e07772ea0d5
-      internalID: 2138585569
+      spriteID: cba1d42a99d2248368be37779eddf7fa
+      internalID: 115255106
       vertices: []
       indices: 
       edges: []
@@ -197,8 +197,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de4a32451e144df7bc02446d1734e5d
-      internalID: 727925504
+      spriteID: a4ead27c8f2284746a667156cd6ea871
+      internalID: 629005720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up left right
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c894ad467bac74b20a746514353e2ca5
+      internalID: -341005168
       vertices: []
       indices: 
       edges: []
@@ -218,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08935c054da89400d8d6db1d70b89f45
-      internalID: 45750962
+      spriteID: 4b9328192a5754c7da4021a561a20337
+      internalID: -473926767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: center
+      name: gold sprite map 4_5
       rect:
         serializedVersion: 2
         x: 48
@@ -239,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6542ab91bb004bf2a4c8cf4ed2e48bc
-      internalID: -552479087
+      spriteID: 3e02203692e5a4c25859b8700cbbae7a
+      internalID: 1819297015
       vertices: []
       indices: 
       edges: []
@@ -260,8 +281,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db92a5e54967b49b4acd42ae0ebeee39
-      internalID: 1026956745
+      spriteID: 71c31119e693c4259af65c8c4d4402dc
+      internalID: -194667812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: down left right
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 160
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d53631c0c024125b7521fd6167742a
+      internalID: 2098639996
       vertices: []
       indices: 
       edges: []
@@ -281,8 +323,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ae65d483e2a42cbb4883208353cfbc
-      internalID: 1339912282
+      spriteID: e4b58b8fce02b46aa8efdc7a25a51742
+      internalID: 860892586
       vertices: []
       indices: 
       edges: []
@@ -292,7 +334,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 112
+        y: 113
         width: 48
         height: 48
       alignment: 0
@@ -302,8 +344,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 574eeb463a9684a84ac4ca88c78569fb
-      internalID: 1373270730
+      spriteID: 65af6849d8a2d47e19e2d5729be9244c
+      internalID: -514520617
       vertices: []
       indices: 
       edges: []
@@ -323,8 +365,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27be08c00510c4e209e5de05c4f17f21
-      internalID: -993421546
+      spriteID: 6122eb1a9aef34150ba188a08fd07e55
+      internalID: 1953287239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down left
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78cfc2746ecc14e7bb1ecd8ce48ba56d
+      internalID: 1047657076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down right
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 112
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada7b2ec66a494e058b02e4625af7e70
+      internalID: 1515498047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down left right
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407bdcad5b5304624a33f1ed8a873104
+      internalID: -1485745731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf230d00197624ca9b451bc14f3f16e0
+      internalID: -406603148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: left right
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d79ba9ba3aad414d894646a2e135ca0
+      internalID: 1029670401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold sprite map 4_16
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa98f5584f18b41299e02334a2b3b47d
+      internalID: 1016594353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold sprite map 4_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49592b4d181d04fc99b7855cc8511feb
+      internalID: -929122060
       vertices: []
       indices: 
       edges: []
@@ -340,15 +529,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      up right: 727925504
-      down left: 1339912282
-      center: -552479087
-      up: 2138585569
-      up left: -591483186
-      down right: -993421546
-      right: 1026956745
-      left: 45750962
-      down: 1373270730
+      up down: -406603148
+      left right: 1029670401
+      gold sprite map 4_17: -929122060
+      down left right: 2098639996
+      up right: 629005720
+      up left right: -341005168
+      up down right: 1515498047
+      down left: 860892586
+      up: 115255106
+      gold sprite map 4_16: 1016594353
+      up left: -1297778411
+      down right: 1953287239
+      right: -194667812
+      gold sprite map 4_5: 1819297015
+      up down left: 1047657076
+      left: -473926767
+      up down left right: -1485745731
+      down: -514520617
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

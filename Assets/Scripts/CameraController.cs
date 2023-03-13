@@ -9,11 +9,6 @@ public class CameraController : MonoBehaviour
     private Vector3 playerPosition;
     public GameObject background;
 
-    private void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void LateUpdate()
     {

@@ -27,6 +27,29 @@ public class TileStorage
         return null;
     }
 
+    public void RemoveTile(int x, int y)
+    {
+        if(HasTile(x,y))
+        {
+            tiles.Remove(new Tuple<int, int>(x, y));
+        }
+    }
+
+    public void RemoveTile(Tile t)
+    {
+        int x = (int)t.GetGlobalPosition().x;
+        int y = (int)t.GetGlobalPosition().y;
+        if (HasTile(x, y))
+        {
+            tiles.Remove(new Tuple<int, int>(x, y));
+        }
+    }
+
+    public Dictionary<Tuple<int, int>, Tile> GetTiles()
+    {
+        return tiles;
+    }
+
     public bool HasTile(int x, int y)
     {
         Tuple<int, int> key = new Tuple<int, int>(x, y);
@@ -38,6 +61,11 @@ public class TileStorage
         {
             return false;
         }
+    }
+
+    public int GetSize()
+    {
+        return tiles.Count;
     }
 
     override

@@ -67,16 +67,6 @@ public class Tile : MonoBehaviour
         return globalPosition;
     }
 
-    //public Vector2 setLocalPosition(int[] p)
-    //{
-    //    this.localPosition = p;
-    //}
-
-    //public int[] getLocalPosition()
-    //{
-    //    return localPosition;
-    //}
-
     public void setFace(int face)
     {
         this.face = face;
@@ -88,9 +78,9 @@ public class Tile : MonoBehaviour
         return face;
     }
 
-    public bool IsOutOfView(Vector2 pos)
+    public bool IsOutOfView(Vector2 pos, int viewPortWidth, int viewPortHeight)
     {
-        if(Math.Abs(this.globalPosition.x - pos.x) > 10 || Math.Abs(this.globalPosition.y - pos.y) > 10 )
+        if(Math.Abs(this.globalPosition.x - pos.x) > viewPortWidth/2 || Math.Abs(this.globalPosition.y - pos.y) > viewPortHeight/2)
         {
             return true;
         }

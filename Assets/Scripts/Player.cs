@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         horiz = Input.GetAxisRaw("Horizontal");
 
 
+
         if (up.isTriggered() && vert == 1f)
         {
             left.setPush(false);
@@ -76,32 +77,17 @@ public class Player : MonoBehaviour
             canMove = true;
         }
 
+        ChangeSpriteOrientation(horiz, vert);
 
         if (canMove && Vector3.Distance(transform.position, movePoint.position) <= .05)
         {
             if (Mathf.Abs(horiz) == 1f)
             {
-                if(horiz > 0)
-                {
-                    playerSprite.sprite = sprites[3];
-                }
-                else
-                {
-                    playerSprite.sprite = sprites[2];
-                }
                 Blackboard.MovePlayer();
                 movePoint.position += new Vector3(horiz, 0f, 0f);
             }
             else if (Mathf.Abs(vert) == 1f)
             {
-                if (vert > 0)
-                {
-                    playerSprite.sprite = sprites[1];
-                }
-                else
-                {
-                    playerSprite.sprite = sprites[0];
-                }
                 Blackboard.MovePlayer();
                 movePoint.position += new Vector3(0f, vert, 0f);
             }
@@ -112,6 +98,34 @@ public class Player : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
     }
+
+    private void ChangeSpriteOrientation(float h, float v)
+    {
+        if (v != 0)
+        {
+            if (v > 0)
+            {
+                playerSprite.sprite = sprites[1];
+            }
+            else
+            {
+                playerSprite.sprite = sprites[0];
+            }
+        }
+        else if (h != 0)
+        {
+            if (h > 0)
+            {
+                playerSprite.sprite = sprites[3];
+            }
+            else
+            {
+                playerSprite.sprite = sprites[2];
+            }
+        }
+
+    }
+
     public int GetX()
     {
         return (int)this.transform.position.x;

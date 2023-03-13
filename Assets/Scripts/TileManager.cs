@@ -13,14 +13,20 @@ public class TileManager : MonoBehaviour
     // Reference to the character object
     public Player player;
 
-    public Tile tilePrefab;
+    //public Tile tilePrefab;
+    public Tile[] tilePrefabs;
 
     // Coordinates of the top-left tile in the viewport
     private int viewportBottom;
     private int viewportLeft;
  
     private TileStorage tiles = new TileStorage();
-    private ArrayList activeTiles = new ArrayList();
+    private TileStorage activeTiles = new TileStorage();
+
+    public float stoneProb;
+    public float ironProb;
+    public float goldProb;
+
 
     private void Start()
     {
@@ -104,10 +110,6 @@ public class TileManager : MonoBehaviour
             {
                 sum += (int)Mathf.Pow(3, i);
             }
-            else
-            {
-                //print(surroundingTiles[i].name);
-            }
         }
         AssignFaceToTile(tiles.GetTile(x, y), sum);
     }
@@ -186,39 +188,85 @@ public class TileManager : MonoBehaviour
     }
     private void UpdateTiles()
     {
-        //print("Bottom Left point:    " + viewportLeft + ", " + viewportBottom);
         for(int x = viewportLeft; x < viewportLeft + viewportWidth; x++)
         {
             for(int y = viewportBottom; y < viewportBottom + viewportHeight; y++)
             {
                 if(y >= 0 && !tiles.HasTile(x,y))
                 {
-                    // Tile not loaded, so create a new one
-                    Tile newTile = Instantiate(tilePrefab, new Vector3(x, y, 0), Quaternion.identity);
-
-                    newTile.name = $"Tile {x} {y}";
-                    newTile.transform.SetParent(transform);
-
-                    newTile.setGlobalPosition(new Vector2(x, y));
-
-                    tiles.AddTile(newTile);
-                    activeTiles.Add(newTile);
+                    String type = ChooseTileType();
+                    CreateTile(type, x, y);
                 }
                 else if(tiles.HasTile(x, y) && !tiles.GetTile(x,y).WasDestroyed())
                 {
                     tiles.GetTile(x, y).Activate();
+                    activeTiles.AddTile(tiles.GetTile(x, y));
                 }
             }
         }
-        foreach(Tile t in activeTiles)
-        {
-            int x = (int)t.GetGlobalPosition().x;
-            int y = (int)t.GetGlobalPosition().y;
 
-            if (t.IsOutOfView(this.player.transform.position))
+        ArrayList tilesToRemove = new ArrayList();
+
+        foreach(KeyValuePair<Tuple<int, int>, Tile> kvp in activeTiles.GetTiles())
+        {
+            Tuple<int, int> pos = kvp.Key;
+            int x = pos.Item1;
+            int y = pos.Item2;
+            Tile t = kvp.Value;
+
+            if(t.IsOutOfView(this.player.transform.position, viewportWidth, viewportHeight))
             {
                 tiles.GetTile(x, y).Deactivate();
+                tilesToRemove.Add(activeTiles.GetTile(x, y));
             }
         }
+
+        foreach(Tile t in tilesToRemove)
+        {
+            activeTiles.RemoveTile(t);
+        }
+    }
+
+    private String ChooseTileType()
+    {
+        float rand = UnityEngine.Random.value;
+
+        if (rand < stoneProb)
+        {
+            return "Stone";
+        }
+        else if (rand < stoneProb + ironProb)
+        {
+            return "Iron";
+        }
+        else
+        {
+            return "Gold";
+        }
+    }
+
+    private void CreateTile(String type,int x, int y)
+    {
+        Tile newTile = null;
+        if(type.Equals("Stone"))
+        {
+            newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 0), Quaternion.identity);
+        }
+        else if(type.Equals("Iron"))
+        {
+            newTile = Instantiate(tilePrefabs[1], new Vector3(x, y, 0), Quaternion.identity);
+        }
+        else if (type.Equals("Gold"))
+        {
+            newTile = Instantiate(tilePrefabs[2], new Vector3(x, y, 0), Quaternion.identity);
+        }
+
+        newTile.name = $"{type} {x} {y}";
+        newTile.transform.SetParent(transform);
+
+        newTile.setGlobalPosition(new Vector2(x, y));
+
+        tiles.AddTile(newTile);
+        activeTiles.AddTile(newTile);
     }
 }
