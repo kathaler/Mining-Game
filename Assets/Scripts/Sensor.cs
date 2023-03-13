@@ -12,7 +12,7 @@ public class Sensor : MonoBehaviour
 
     private void Update()
     {
-        if (touch)
+        if (tile != null && touch)
         {
             if (isPushing)
             {
@@ -27,8 +27,14 @@ public class Sensor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //print(this.name + " has entered block " + collision.gameObject.name);
-        tile = collision.gameObject.GetComponent<Tile>();
+        if(collision.tag == "Wall")
+        {
+            print("Here");
+        }
+        else if(collision.tag == "Tile")
+        {
+            tile = collision.gameObject.GetComponent<Tile>();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

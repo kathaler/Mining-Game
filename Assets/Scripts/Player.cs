@@ -6,11 +6,15 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Transform movePoint;
+    public Sprite[] sprites;
+
     private float vert;
     private float horiz;
     Sensor up, down, left, right;
 
     private bool canMove = false;
+
+    public SpriteRenderer playerSprite;
 
     private void Start()
     {
@@ -31,7 +35,7 @@ public class Player : MonoBehaviour
         horiz = Input.GetAxisRaw("Horizontal");
 
 
-        if(up.isTriggered() && vert == 1f)
+        if (up.isTriggered() && vert == 1f)
         {
             left.setPush(false);
             right.setPush(false);
@@ -77,11 +81,27 @@ public class Player : MonoBehaviour
         {
             if (Mathf.Abs(horiz) == 1f)
             {
+                if(horiz > 0)
+                {
+                    playerSprite.sprite = sprites[3];
+                }
+                else
+                {
+                    playerSprite.sprite = sprites[2];
+                }
                 Blackboard.MovePlayer();
                 movePoint.position += new Vector3(horiz, 0f, 0f);
             }
             else if (Mathf.Abs(vert) == 1f)
             {
+                if (vert > 0)
+                {
+                    playerSprite.sprite = sprites[1];
+                }
+                else
+                {
+                    playerSprite.sprite = sprites[0];
+                }
                 Blackboard.MovePlayer();
                 movePoint.position += new Vector3(0f, vert, 0f);
             }

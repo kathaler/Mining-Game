@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e78e1a033a57442dbb00fa0105e32084
+guid: ecfb61dcff6c34307b062e9a17a6d831
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stone sprite map_0
+      name: up left
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 292b127e069f045239242ba34eba5f7d
-      internalID: -2122039367
+      spriteID: 058cdd4eac96846b8ad7a0c281ca23f2
+      internalID: -1997602198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_1
+      name: up
       rect:
         serializedVersion: 2
         x: 32
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf65adf0bff6047e0a717a5cc9d98a19
-      internalID: 1940435928
+      spriteID: f39f839a729b94aea829387e1b8d8c39
+      internalID: -1922478329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_2
+      name: up right
       rect:
         serializedVersion: 2
         x: 64
@@ -197,14 +197,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed604f384973e45d9871cb5dc4903654
-      internalID: -2112131573
+      spriteID: 54321d7dfcb9a40fcbbc7d328a40b4f9
+      internalID: -711964438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_3
+      name: up left right
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f537139d0ab094ad99b96800ffc9f9c7
+      internalID: 873710089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: left
       rect:
         serializedVersion: 2
         x: 0
@@ -218,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 676b5bf0a94e9494ba82496ff2a0d07b
-      internalID: 1340671260
+      spriteID: 969b79e4e1e604917976f31058fdf0aa
+      internalID: -141520899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_4
+      name: center
       rect:
         serializedVersion: 2
         x: 32
@@ -239,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 433f617e58d274f71bbffdbd90f66cb3
-      internalID: -1132492571
+      spriteID: b202eb2e93af94e21b3e13615037ebbc
+      internalID: 211410150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_5
+      name: right
       rect:
         serializedVersion: 2
         x: 64
@@ -260,14 +281,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f0280db5f2f640e783482446e3cf53c
-      internalID: -151338163
+      spriteID: 187d0a03d509a4c3d86a57f5f5d35ea3
+      internalID: 1734158630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_6
+      name: down left right
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e851a7be5e034f3dba6f141b578c87c
+      internalID: 329899345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: down left
       rect:
         serializedVersion: 2
         x: 0
@@ -281,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2686dfb8f3094cd6a690943036de355
-      internalID: 1262483732
+      spriteID: 888957e728e6649f0a6b96e2a4396eee
+      internalID: -704384624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_7
+      name: down
       rect:
         serializedVersion: 2
         x: 32
@@ -302,14 +344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daa9eb8af20eb4468a909ed5115523c0
-      internalID: -1577849377
+      spriteID: e28b58a8f5bbc4a42a574d85be990b0e
+      internalID: 593990400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stone sprite map_8
+      name: down right
       rect:
         serializedVersion: 2
         x: 64
@@ -323,8 +365,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a4c089a4ba749a581f7851d8a79c1a
-      internalID: 1329514605
+      spriteID: b747dbbf9f7924ab3805141edcd2d300
+      internalID: 79483108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down left
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b509e9293c54cc39a86d4bec15fe27
+      internalID: -1392697227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down left right
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7110a85658f45c0b0f6b7af78c601e
+      internalID: 917073315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484b7ee80de8e42ea82408bd42087810
+      internalID: 81746978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: left right
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9acaf01fe4ef4078a224a33f0d41bfb
+      internalID: 1104596300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up down right
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d4448810ae9475ea656c991249e391
+      internalID: 100344616
       vertices: []
       indices: 
       edges: []
@@ -340,15 +487,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Stone sprite map_5: -151338163
-      Stone sprite map_6: 1262483732
-      Stone sprite map_7: -1577849377
-      Stone sprite map_4: -1132492571
-      Stone sprite map_0: -2122039367
-      Stone sprite map_2: -2112131573
-      Stone sprite map_3: 1340671260
-      Stone sprite map_8: 1329514605
-      Stone sprite map_1: 1940435928
+      down: 593990400
+      left right: 1104596300
+      down left right: 329899345
+      up right: -711964438
+      up left right: 873710089
+      up down right: 100344616
+      down left: -704384624
+      center: 211410150
+      up: -1922478329
+      up left: -1997602198
+      down right: 79483108
+      right: 1734158630
+      up down left: -1392697227
+      up down left right: 917073315
+      up down: 81746978
+      left: -141520899
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

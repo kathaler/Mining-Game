@@ -26,7 +26,7 @@ public static class Blackboard
         }
         else
         {
-            return new Vector2();
+            return new Vector2(0,-1);
         }
     }
 

@@ -24,7 +24,14 @@ public class Tile : MonoBehaviour
         text.text = "";
 
         r = this.GetComponent<SpriteRenderer>();
-        r.sprite = sprites[4];
+        if(this.transform.position.y == 0)
+        {
+            r.sprite = sprites[1];
+        }
+        else
+        {
+            r.sprite = sprites[0];
+        }
     }
 
     void Update()
