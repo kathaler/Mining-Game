@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Wall Manager
 public class WallManager : MonoBehaviour
 {
     public GameObject wall;
