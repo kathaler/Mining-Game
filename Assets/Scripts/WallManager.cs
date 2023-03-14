@@ -14,35 +14,24 @@ public class WallManager : MonoBehaviour
         Vector2 pos = player.transform.position;
         for(int x = (int)pos.x + 2; x < viewportWidth + (int)pos.x + 2; x++)
         {
-            int y = -1;
-            GameObject newWall = Instantiate(wall, new Vector3(x, y, 0), Quaternion.identity);
-            newWall.name = $"Wall {x} {y}";
+            for (int y = -10; y <= -1; y++)
+            {
+                GameObject newWall = Instantiate(wall, new Vector3(x, y, 0), Quaternion.identity);
+                newWall.name = $"Wall {x} {y}";
 
-            newWall.transform.SetParent(this.transform);
+                newWall.transform.SetParent(this.transform);
+            }
         }
 
         for (int x = (int)pos.x - 2; x > (int)pos.x - 2 - viewportWidth; x--)
         {
-            int y = -1;
-            GameObject newWall = Instantiate(wall, new Vector3(x, y, 0), Quaternion.identity);
-            newWall.name = $"Wall {x} {y}";
+            for (int y = -10; y <= -1; y++)
+            {
+                GameObject newWall = Instantiate(wall, new Vector3(x, y, 0), Quaternion.identity);
+                newWall.name = $"Wall {x} {y}";
 
-            newWall.transform.SetParent(this.transform);
-
-        }
-
-        for (int y = -10; y < -1; y++)
-        {
-
-            GameObject newWall = Instantiate(wall, new Vector3(-2, y, 0), Quaternion.identity);
-            newWall.name = $"Wall {-2} {y}";
-            newWall.transform.SetParent(this.transform);
-
-
-            GameObject newWall2 = Instantiate(wall, new Vector3(2, y, 0), Quaternion.identity);
-            newWall2.name = $"Wall {-2} {y}";
-            newWall2.transform.SetParent(this.transform);
-
+                newWall.transform.SetParent(this.transform);
+            }
         }
     }
     private void Update()

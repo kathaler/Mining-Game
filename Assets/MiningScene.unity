@@ -357,9 +357,9 @@ MonoBehaviour:
   - {fileID: 878892576}
   - {fileID: 546520437}
   - {fileID: 755552579}
-  stoneProb: 0.9
-  ironProb: 0.05
-  goldProb: 0.05
+  stoneProb: 0.93
+  ironProb: 0.06
+  goldProb: 0.01
 --- !u!4 &322789726
 Transform:
   m_ObjectHideFlags: 0
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 864552370}
-  offsetSmoothing: 10
+  offsetSmoothing: 8
   background: {fileID: 1439372454}
 --- !u!114 &519420034
 MonoBehaviour:
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0ce8d03fa994d25acd92284ba16133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 2
   text: {fileID: 556421724}
   sprites:
   - {fileID: -679964490, guid: 1aa617a3b2d54439cb9928a8fd2da859, type: 3}
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b8f0cd294cb45c3b9d9d0ff8cfca82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 1
   text: {fileID: 418085703}
   sprites:
   - {fileID: 1819297015, guid: e4a37d315095f47c98c8147a42e1a49c, type: 3}
@@ -1874,7 +1874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa517ea3383e45ae87e4f72bd988490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2
+  time: 1
   text: {fileID: 1937891434}
   sprites:
   - {fileID: 512737337, guid: d21df3b2c1f1c4a5b84bc73c6ecb9421, type: 3}
