@@ -3,6 +3,9 @@
 Strip Mining Game is a simple mining game developed in Unity where you mine to retrieve items that you use to unlock and build machines, upgrade tools, and unlock new levels. This game is solo developed and designed for those who love mining games.
 
 
+<img width="1373" alt="mininggame" src="https://user-images.githubusercontent.com/61032371/225024478-764092d4-644c-4e71-9b4c-0b01ed09e0ca.png">
+
+
 **Getting Started**
 - Clone the repository into your local machine.
 - Open the project in Unity.
