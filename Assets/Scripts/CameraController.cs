@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -8,6 +9,17 @@ public class CameraController : MonoBehaviour
     public float offsetSmoothing;
     private Vector3 playerPosition;
     public GameObject background;
+
+    private Text stone;
+    private Text iron;
+    private Text gold;
+
+    private Text text;
+
+
+    void Start() {
+ 
+    }
 
     // Update is called once per frame
     void LateUpdate()

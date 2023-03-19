@@ -16,21 +16,18 @@ public class Sensor : MonoBehaviour
         {
             if (isPushing)
             {
-                tile.countDown();
+                tile.countDown(this.name);
             }
             else
             {
-                tile.resetTimer();
+                if(tile.IsCountingDown()) tile.resetTimer();
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Wall")
-        {
-        }
-        else if(collision.tag == "Tile")
+        if(collision.tag == "Tile")
         {
             tile = collision.gameObject.GetComponent<Tile>();
         }

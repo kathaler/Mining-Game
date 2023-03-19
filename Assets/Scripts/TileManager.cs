@@ -61,18 +61,22 @@ public class TileManager : MonoBehaviour
 
         if(tiles.HasTile(x+1,y))
         {
+            tiles.GetTile(x+1,y).ShowParticles();
             CheckTile(x + 1, y);
         }
         if (tiles.HasTile(x - 1, y))
         {
+            tiles.GetTile(x-1,y).ShowParticles();
             CheckTile(x - 1, y);
         }
         if (tiles.HasTile(x, y + 1))
         {
+            tiles.GetTile(x,y+1).ShowParticles();
             CheckTile(x, y + 1);
         }
         if (tiles.HasTile(x, y - 1))
         {
+            tiles.GetTile(x,y-1).ShowParticles();
             CheckTile(x, y - 1);
         }
 
@@ -248,17 +252,26 @@ public class TileManager : MonoBehaviour
     private void CreateTile(String type,int x, int y)
     {
         Tile newTile = null;
-        if(type.Equals("Stone"))
+
+        if (y == 0)
         {
             newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 0), Quaternion.identity);
+            type = "Stone";
         }
-        else if(type.Equals("Iron"))
+        else
         {
-            newTile = Instantiate(tilePrefabs[1], new Vector3(x, y, 0), Quaternion.identity);
-        }
-        else if (type.Equals("Gold"))
-        {
-            newTile = Instantiate(tilePrefabs[2], new Vector3(x, y, 0), Quaternion.identity);
+            if (type.Equals("Stone"))
+            {
+                newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 0), Quaternion.identity);
+            }
+            else if (type.Equals("Iron"))
+            {
+                newTile = Instantiate(tilePrefabs[1], new Vector3(x, y, 0), Quaternion.identity);
+            }
+            else if (type.Equals("Gold"))
+            {
+                newTile = Instantiate(tilePrefabs[2], new Vector3(x, y, 0), Quaternion.identity);
+            }
         }
 
         newTile.name = $"{type} {x} {y}";

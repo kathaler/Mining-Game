@@ -7,16 +7,23 @@ using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
-    private float current_time;
-    private SpriteRenderer r;
-    private Vector2 globalPosition;
-    //private Vector2 localPosition;
-    private int face;
-    private bool destroyed = false;
-
+    public Slider slider;
     public float time = 10;
     public TextMeshPro text;
     public Sprite[] sprites;
+    public TextMeshProUGUI value;
+    public GameObject itemPrefab;
+
+
+    private int face;
+    private bool destroyed = false;
+    private bool showParticles = false;
+    private bool isCountingDown = false;
+    private float current_time;
+    private SpriteRenderer r;
+    private Vector2 globalPosition;
+    private ParticleSystem particles;
+    // private TileParticleSystem particles;
 
     void Start()
     {
@@ -24,7 +31,7 @@ public class Tile : MonoBehaviour
         text.text = "";
 
         r = this.GetComponent<SpriteRenderer>();
-        if(this.transform.position.y == 0)
+        if (this.transform.position.y == 0)
         {
             r.sprite = sprites[1];
         }
@@ -32,34 +39,91 @@ public class Tile : MonoBehaviour
         {
             r.sprite = sprites[0];
         }
+
+        particles = GetComponent<ParticleSystem>();
+        particles.Stop();
+
+        slider.gameObject.SetActive(false);
+        // particles = GetComponent<TileParticleSystem>();
+
     }
 
     void Update()
     {
-        if(current_time <= 0)
+        if (current_time <= 0)
         {
+            slider.gameObject.SetActive(false);
             Blackboard.DestroyTile(this);
             this.Deactivate();
             this.Destroyed();
+            int x = Int32.Parse(value.text);
+            value.text = (x + 1).ToString();
+            Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        }
+
+        if (showParticles && !particles.isPlaying)
+        {
+            particles.Play();
         }
     }
 
-    public void countDown()
+    private void SetSliderPosition(String d)
     {
-        //print(this.gameObject.name + " is counting down: " + current_time);
+        if (d == "Up")
+        {
+            slider.transform.rotation = Quaternion.Euler(0, 0, 0);
+            slider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - .55f, 100);
+        }
+        if (d == "Down")
+        {
+            slider.transform.rotation = Quaternion.Euler(0, 0, 0);
+            slider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + .55f, 100);
+
+        }
+        if (d == "Left")
+        {
+            slider.transform.rotation = Quaternion.Euler(0, 0, 90);
+            slider.transform.position = new Vector3(this.transform.position.x + .55f, this.transform.position.y, 100);
+        }
+        if (d == "Right")
+        {
+            slider.transform.rotation = Quaternion.Euler(0, 0, 90);
+            slider.transform.position = new Vector3(this.transform.position.x - .55f, this.transform.position.y, 100);
+        }
+    }
+
+    public void countDown(String direction)
+    {
+        // StartCoroutine(particles.BurstRoutine());
+        // particles.Burst();
+        isCountingDown = true;
+        slider.gameObject.SetActive(true);
+
+        SetSliderPosition(direction);
         current_time -= Time.deltaTime;
-        text.text = Math.Round(current_time, 2).ToString();
+
+        float x = time - current_time;
+        float val = x / time;
+
+        // text.text = Math.Round(current_time, 2).ToString();
+        slider.value = val;
     }
 
     public void resetTimer()
     {
+        isCountingDown = false;
+        slider.value = 0;
+        if (slider.IsActive())
+        {
+            slider.gameObject.SetActive(false);
+        }
         current_time = time;
         text.text = "";
     }
 
     public void setGlobalPosition(Vector2 p)
     {
-        this.globalPosition = p; 
+        this.globalPosition = p;
     }
 
     public Vector2 GetGlobalPosition()
@@ -80,7 +144,7 @@ public class Tile : MonoBehaviour
 
     public bool IsOutOfView(Vector2 pos, int viewPortWidth, int viewPortHeight)
     {
-        if(Math.Abs(this.globalPosition.x - pos.x) > viewPortWidth/2 || Math.Abs(this.globalPosition.y - pos.y) > viewPortHeight/2)
+        if (Math.Abs(this.globalPosition.x - pos.x) > viewPortWidth / 2 || Math.Abs(this.globalPosition.y - pos.y) > viewPortHeight / 2)
         {
             return true;
         }
@@ -90,9 +154,18 @@ public class Tile : MonoBehaviour
         }
     }
 
+    public void ShowParticles()
+    {
+        showParticles = true;
+    }
+
     public void Activate()
     {
         this.gameObject.SetActive(true);
+        if (!showParticles && this.particles != null)
+        {
+            this.particles.Stop();
+        }
     }
     public void Deactivate()
     {
@@ -106,4 +179,11 @@ public class Tile : MonoBehaviour
     {
         return this.destroyed;
     }
+
+    public bool IsCountingDown()
+    {
+        return isCountingDown;
+    }
+
+
 }

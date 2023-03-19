@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     private bool canMove = false;
 
+    private int orientation = 0;
+
     public SpriteRenderer playerSprite;
 
     private void Start()
@@ -33,8 +35,6 @@ public class Player : MonoBehaviour
 
         vert = Input.GetAxisRaw("Vertical");
         horiz = Input.GetAxisRaw("Horizontal");
-
-
 
         if (up.isTriggered() && vert == 1f)
         {
@@ -99,10 +99,15 @@ public class Player : MonoBehaviour
 
     }
 
+    public int GetOrientation() {
+        return orientation;
+    }
+
     private void ChangeSpriteOrientation(float h, float v)
     {
         if (v != 0)
         {
+            orientation = 0;
             if (v > 0)
             {
                 playerSprite.sprite = sprites[1];
@@ -114,6 +119,7 @@ public class Player : MonoBehaviour
         }
         else if (h != 0)
         {
+            orientation = 1;
             if (h > 0)
             {
                 playerSprite.sprite = sprites[3];
