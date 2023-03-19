@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1755473208}
-  time: 0.2
+  time: 0.05
   text: {fileID: 1457650581}
   sprites:
   - {fileID: 512737337, guid: d21df3b2c1f1c4a5b84bc73c6ecb9421, type: 3}
@@ -22729,7 +22729,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0020087808, y: 0.06830025}
+  m_Offset: {x: 0.0020088926, y: 0.0361588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -22740,7 +22740,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36922857, y: 0.53395176}
+  m_Size: {x: 0.2165579, y: 0.24468088}
   m_EdgeRadius: 0
 --- !u!1 &1723840177
 GameObject:
@@ -27836,6 +27836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneItem
       objectReference: {fileID: 0}
+    - target: {fileID: 3323768730951515936, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 3323768730951515941, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -27850,7 +27854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323768730951515941, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 3323768730951515941, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27886,11 +27890,11 @@ PrefabInstance:
       objectReference: {fileID: 1717263693}
     - target: {fileID: 3323768730951515943, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}
       propertyPath: maxSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3323768730951515943, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}
       propertyPath: intensity
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db1fa8d258bf432daa8ad671cd16633, type: 3}

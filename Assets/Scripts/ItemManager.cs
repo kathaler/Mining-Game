@@ -22,10 +22,10 @@ public class ItemManager : MonoBehaviour
         int o = player.GetOrientation();
         body = this.GetComponent<Rigidbody2D>();
         if(o == 0) {
-            body.velocity = new Vector2(NextFloat(-10f, 10f), 0);
+            body.velocity = new Vector2(NextFloat(-10f, 10f), NextFloat(-1f, 1f));
         } 
         else {
-            body.velocity = new Vector2(0, NextFloat(-10f, 10f));
+            body.velocity = new Vector2(NextFloat(-1f, 1f), NextFloat(-10f, 10f));
         }
     }
 
@@ -47,12 +47,5 @@ public class ItemManager : MonoBehaviour
         System.Random random = new System.Random();
         double val = (random.NextDouble() * (max - min) + min);
         return (float)val;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.name == "Player") {
-            print("Hello");
-            Destroy(this.gameObject);
-        }
     }
 }

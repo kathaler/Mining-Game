@@ -58,7 +58,10 @@ public class Tile : MonoBehaviour
             this.Destroyed();
             int x = Int32.Parse(value.text);
             value.text = (x + 1).ToString();
-            Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            int r = getRandomInt(1, 2);
+            for(int i = 0; i < r; i++) {
+                Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            }
         }
 
         if (showParticles && !particles.isPlaying)
@@ -183,6 +186,12 @@ public class Tile : MonoBehaviour
     public bool IsCountingDown()
     {
         return isCountingDown;
+    }
+
+    public static int getRandomInt(int a, int b)
+    {
+        System.Random rnd = new System.Random();
+        return rnd.Next(a, b);
     }
 
 

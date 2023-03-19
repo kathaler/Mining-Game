@@ -140,4 +140,11 @@ public class Player : MonoBehaviour
     {
         return (int)this.transform.position.y;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.tag == "Item") {
+            print("Hello");
+            Destroy(collision.gameObject);
+        }
+    }
 }
