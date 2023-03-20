@@ -31,16 +31,31 @@ public class Sensor : MonoBehaviour
         {
             tile = collision.gameObject.GetComponent<Tile>();
         }
+        if(collision.tag == "Wall")
+        {
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        touch = true;
+        if(collision.tag == "Tile")
+        {
+            touch = true;
+        }
+        if(collision.tag == "Wall")
+        {
+        }        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        touch = false;
+        if(collision.tag == "Tile")
+        {
+            touch = false;
+        }    
+        if(collision.tag == "Wall")
+        {
+        }
     }
 
     public void setPosition(float x, float y)

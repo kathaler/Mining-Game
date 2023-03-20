@@ -27,6 +27,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+
         current_time = time;
         text.text = "";
 
@@ -58,15 +59,20 @@ public class Tile : MonoBehaviour
             this.Destroyed();
             int x = Int32.Parse(value.text);
             value.text = (x + 1).ToString();
-            int r = getRandomInt(1, 2);
-            for(int i = 0; i < r; i++) {
-                Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-            }
+            CreateItem();
         }
 
         if (showParticles && !particles.isPlaying)
         {
             particles.Play();
+        }
+    }
+
+    private void CreateItem() {
+        int r = getRandomInt(1, 2);
+        for(int i = 0; i < r; i++) {
+            Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+            
         }
     }
 

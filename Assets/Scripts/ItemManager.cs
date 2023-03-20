@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] private Player player;
-    [SerializeField] private float influenceRange = 100f;
-    [SerializeField] private float intensity = .5f;
-    [SerializeField] private float distanceToPlayer = 10f;
-    [SerializeField] private float maxSpeed = 5f;
+    public Player player;
+    public float influenceRange;
+    public float intensity;
+    public float distanceToPlayer;
+    public float maxSpeed;
+    public Sprite sprite;
 
     Vector2 pullForce;
     Rigidbody2D body;
@@ -17,7 +18,7 @@ public class ItemManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         int o = player.GetOrientation();
         body = this.GetComponent<Rigidbody2D>();
@@ -27,6 +28,8 @@ public class ItemManager : MonoBehaviour
         else {
             body.velocity = new Vector2(NextFloat(-1f, 1f), NextFloat(-10f, 10f));
         }
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = sprite;
     }
 
     // Update is called once per frame

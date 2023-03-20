@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3323768730951515937}
   m_Layer: 0
   m_Name: StoneItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   influenceRange: 5
-  intensity: 10
+  intensity: 7
   distanceToPlayer: 2
-  maxSpeed: 8
+  maxSpeed: 5
 --- !u!50 &3323768730951515942
 Rigidbody2D:
   serializedVersion: 4
@@ -142,7 +142,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.4, y: 0.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
