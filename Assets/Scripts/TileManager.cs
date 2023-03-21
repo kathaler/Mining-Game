@@ -16,17 +16,16 @@ public class TileManager : MonoBehaviour
     //public Tile tilePrefab;
     public Tile[] tilePrefabs;
 
+    public float stoneProb;
+    public float ironProb;
+    public float goldProb;
+
     // Coordinates of the top-left tile in the viewport
     private int viewportBottom;
     private int viewportLeft;
  
     private TileStorage tiles = new TileStorage();
     private TileStorage activeTiles = new TileStorage();
-
-    public float stoneProb;
-    public float ironProb;
-    public float goldProb;
-
 
     private void Start()
     {
@@ -61,22 +60,18 @@ public class TileManager : MonoBehaviour
 
         if(tiles.HasTile(x+1,y))
         {
-            tiles.GetTile(x+1,y).ShowParticles();
             CheckTile(x + 1, y);
         }
         if (tiles.HasTile(x - 1, y))
         {
-            tiles.GetTile(x-1,y).ShowParticles();
             CheckTile(x - 1, y);
         }
         if (tiles.HasTile(x, y + 1))
         {
-            tiles.GetTile(x,y+1).ShowParticles();
             CheckTile(x, y + 1);
         }
         if (tiles.HasTile(x, y - 1))
         {
-            tiles.GetTile(x,y-1).ShowParticles();
             CheckTile(x, y - 1);
         }
 
@@ -84,6 +79,8 @@ public class TileManager : MonoBehaviour
 
     private void CheckTile(int x, int y)
     {
+        tiles.GetTile(x,y).ShowParticles();
+
         Tile up = null;
         Tile down = null;
         Tile left = null;
@@ -255,22 +252,22 @@ public class TileManager : MonoBehaviour
 
         if (y == 0)
         {
-            newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 0), Quaternion.identity);
+            newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 1), Quaternion.identity);
             type = "Stone";
         }
         else
         {
             if (type.Equals("Stone"))
             {
-                newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 0), Quaternion.identity);
+                newTile = Instantiate(tilePrefabs[0], new Vector3(x, y, 1), Quaternion.identity);
             }
             else if (type.Equals("Iron"))
             {
-                newTile = Instantiate(tilePrefabs[1], new Vector3(x, y, 0), Quaternion.identity);
+                newTile = Instantiate(tilePrefabs[1], new Vector3(x, y, 1), Quaternion.identity);
             }
             else if (type.Equals("Gold"))
             {
-                newTile = Instantiate(tilePrefabs[2], new Vector3(x, y, 0), Quaternion.identity);
+                newTile = Instantiate(tilePrefabs[2], new Vector3(x, y, 1), Quaternion.identity);
             }
         }
 

@@ -57,8 +57,10 @@ public class Tile : MonoBehaviour
             Blackboard.DestroyTile(this);
             this.Deactivate();
             this.Destroyed();
-            int x = Int32.Parse(value.text);
-            value.text = (x + 1).ToString();
+            if(value != null) {
+                int x = Int32.Parse(value.text);
+                value.text = (x + 1).ToString();
+            }
             CreateItem();
         }
 

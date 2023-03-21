@@ -16,15 +16,21 @@ public class Player : MonoBehaviour
 
     private int orientation = 0;
 
+    private InventorySystem inventory;
+
     public SpriteRenderer playerSprite;
+
 
     private void Start()
     {
         movePoint.parent = null;
+
         up = GameObject.Find("Up").GetComponent<Sensor>();
         down = GameObject.Find("Down").GetComponent<Sensor>();
         left = GameObject.Find("Left").GetComponent<Sensor>();
         right = GameObject.Find("Right").GetComponent<Sensor>();
+
+        inventory = GameObject.Find("Inventory").GetComponent<InventorySystem>();
     }
     private void Update()
     {
@@ -143,7 +149,8 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "Item") {
-            FindObjectOfType<AudioManager>().Play("ItemCollected");
+            // FindObjectOfType<AudioManager>().Play("ItemCollected");
+            inventory.Add(collision.gameObject.GetComponent<ItemManagerBeta>().getItem());
             Destroy(collision.gameObject);
         }
     }
