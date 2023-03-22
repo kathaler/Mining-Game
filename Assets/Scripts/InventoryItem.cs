@@ -6,8 +6,8 @@ using System;
 [Serializable]
 public class InventoryItem
 {
-    public Item data {get; private set;}
-    public int stackSize {get; private set;}
+    public Item data;
+    public int stackSize;
 
     public InventoryItem(Item source) {
         data = source;
@@ -23,4 +23,10 @@ public class InventoryItem
             stackSize--;
         }
     }
+
+    public string getDataString() {
+        return data.type + " : " + stackSize;
+
+    }
+
 }

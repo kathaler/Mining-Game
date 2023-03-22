@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         left = GameObject.Find("Left").GetComponent<Sensor>();
         right = GameObject.Find("Right").GetComponent<Sensor>();
 
-        inventory = GameObject.Find("Inventory").GetComponent<InventorySystem>();
+        inventory = InventorySystem.instance;
     }
     private void Update()
     {
@@ -151,6 +151,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Item") {
             // FindObjectOfType<AudioManager>().Play("ItemCollected");
             inventory.Add(collision.gameObject.GetComponent<ItemManagerBeta>().getItem());
+            inventory.PrintInventory();
             Destroy(collision.gameObject);
         }
     }

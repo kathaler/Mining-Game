@@ -9,9 +9,7 @@ public class Tile : MonoBehaviour
 {
     public Slider slider;
     public float time = 10;
-    public TextMeshPro text;
     public Sprite[] sprites;
-    public TextMeshProUGUI value;
     public GameObject itemPrefab;
 
 
@@ -29,7 +27,6 @@ public class Tile : MonoBehaviour
     {
 
         current_time = time;
-        text.text = "";
 
         r = this.GetComponent<SpriteRenderer>();
         if (this.transform.position.y == 0)
@@ -57,10 +54,6 @@ public class Tile : MonoBehaviour
             Blackboard.DestroyTile(this);
             this.Deactivate();
             this.Destroyed();
-            if(value != null) {
-                int x = Int32.Parse(value.text);
-                value.text = (x + 1).ToString();
-            }
             CreateItem();
         }
 
@@ -74,7 +67,6 @@ public class Tile : MonoBehaviour
         int r = getRandomInt(1, 2);
         for(int i = 0; i < r; i++) {
             Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-            
         }
     }
 
@@ -116,7 +108,6 @@ public class Tile : MonoBehaviour
         float x = time - current_time;
         float val = x / time;
 
-        // text.text = Math.Round(current_time, 2).ToString();
         slider.value = val;
     }
 
@@ -129,7 +120,6 @@ public class Tile : MonoBehaviour
             slider.gameObject.SetActive(false);
         }
         current_time = time;
-        text.text = "";
     }
 
     public void setGlobalPosition(Vector2 p)

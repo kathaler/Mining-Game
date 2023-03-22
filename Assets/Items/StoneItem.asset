@@ -15,6 +15,6 @@ MonoBehaviour:
   type: Stone
   sprite: {fileID: 21300000, guid: 40241e8eb848e42ce968010ac69d899e, type: 3}
   influenceRange: 2
-  intensity: 8
+  intensity: 15
   distanceToPlayer: 5
-  maxSpeed: 8
+  maxSpeed: 5
