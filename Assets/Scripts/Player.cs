@@ -149,7 +149,13 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "Item") {
-            // FindObjectOfType<AudioManager>().Play("ItemCollected");
+            print(collision.gameObject.name);
+            if(collision.gameObject.name == "GoldItem(Clone)") {
+                FindObjectOfType<AudioManager>().PlayWithRandomPitch("GoldCollected", 1.5f, 1.7f);
+            }
+            else {
+                FindObjectOfType<AudioManager>().PlayWithRandomPitch("ItemCollected", 1.1f, 2.5f);
+            }
             inventory.Add(collision.gameObject.GetComponent<ItemManagerBeta>().getItem());
             inventory.PrintInventory();
             Destroy(collision.gameObject);

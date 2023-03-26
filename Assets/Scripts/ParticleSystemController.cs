@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileParticleSystem : MonoBehaviour
+public class ParticleSystemController : MonoBehaviour
 {
 public ParticleSystem firstSystem;
 public ParticleSystem secondSystem;

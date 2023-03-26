@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
 
 
     void Start() {
- 
+        FindObjectOfType<AudioManager>().Play("music");
     }
 
     // Update is called once per frame

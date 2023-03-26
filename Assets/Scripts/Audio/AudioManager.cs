@@ -17,9 +17,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlayWithRandomPitch(string name, float lower, float higher) {
+        Sound s = Array.Find(sounds, sounds => sounds.name == name);
+        if(s == null) return;
+        print("Playing sound");
+        float p = NextFloat(lower, higher);
+        s.source.pitch = p;
+        s.source.Play();
+    }
+
     public void Play(string name) {
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
         if(s == null) return;
         s.source.Play();
+    }
+
+    static float NextFloat(float min, float max)
+    {
+        System.Random random = new System.Random();
+        double val = (random.NextDouble() * (max - min) + min);
+        return (float)val;
     }
 }
