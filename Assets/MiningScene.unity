@@ -229,14 +229,50 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GoldCollected
     clip: {fileID: 8300000, guid: a5444a08f25264f2b8aefda127d60c71, type: 3}
-    volume: 0.197
+    volume: 0.1
     pitch: 1.5
     loop: 0
     source: {fileID: 0}
-  - name: music
-    clip: {fileID: 8300000, guid: 4ac7c84defc054e33bee7b3ef0bf6522, type: 3}
-    volume: 0
+  - name: Ambience1
+    clip: {fileID: 8300000, guid: ca93d808a6d91480f88306d28fd8b3f0, type: 3}
+    volume: 0.012
     pitch: 1.01
+    loop: 1
+    source: {fileID: 0}
+  - name: FoundGold1
+    clip: {fileID: 8300000, guid: 60a8de0d8f5084cb184346ffdefc67de, type: 3}
+    volume: 0.045
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FoundGold2
+    clip: {fileID: 8300000, guid: 7e1bd41887f4e43a0905281127a81253, type: 3}
+    volume: 0.057
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FoundIron1
+    clip: {fileID: 8300000, guid: 92163296e09cc4e22936100f50543d42, type: 3}
+    volume: 0.057
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FoundIron2
+    clip: {fileID: 8300000, guid: 6c6ffc406fbfe490e9717e4316fa5522, type: 3}
+    volume: 0.057
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TileBreaking1
+    clip: {fileID: 8300000, guid: dabd38d974428443a97ee4fc3b393702, type: 3}
+    volume: 0.057
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+  - name: Mining1
+    clip: {fileID: 8300000, guid: a095ce53d70cf477abeaf0ba097e1fc1, type: 3}
+    volume: 0.033
+    pitch: 0.89
     loop: 1
     source: {fileID: 0}
 --- !u!4 &85535427
@@ -488,9 +524,9 @@ MonoBehaviour:
   - {fileID: 361471355}
   - {fileID: 546520437}
   - {fileID: 732902176}
-  stoneProb: 0.33
-  ironProb: 0.33
-  goldProb: 0.34
+  stoneProb: 0.97
+  ironProb: 0.025
+  goldProb: 0.005
 --- !u!4 &322789726
 Transform:
   m_ObjectHideFlags: 0
@@ -736,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1755473208}
-  time: 2
+  time: 0.2
   sprites:
   - {fileID: 512737337, guid: d21df3b2c1f1c4a5b84bc73c6ecb9421, type: 3}
   - {fileID: -280782068, guid: d21df3b2c1f1c4a5b84bc73c6ecb9421, type: 3}

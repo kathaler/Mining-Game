@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayWithRandomPitch(string name, float lower, float higher) {
+    public void Play(string name, float lower, float higher) {
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
         if(s == null) return;
         print("Playing sound");
@@ -30,6 +30,23 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
         if(s == null) return;
         s.source.Play();
+    }
+
+    // public void Play(string name, float speed) {
+    //     Sound s = Array.Find(sounds, sounds => sounds.name == name);
+    //     if(s == null) return;
+    //     s.source.pitch = speed;
+    //     s.source.outputAudioMixerGroup.audioMixer.SetFloat("Pitch", 1f / speed);
+    //     s.source.Play();
+
+    // }
+
+    public void Pause(string name) {
+        Sound s = Array.Find(sounds, sounds => sounds.name == name);
+        if(s == null) return;
+        if(s.source.isPlaying) {
+            s.source.Pause();
+        }
     }
 
     static float NextFloat(float min, float max)

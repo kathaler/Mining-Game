@@ -60,18 +60,22 @@ public class TileManager : MonoBehaviour
 
         if(tiles.HasTile(x+1,y))
         {
+            tiles.GetTile(x+1,y).Discover();
             CheckTile(x + 1, y);
         }
         if (tiles.HasTile(x - 1, y))
         {
+            tiles.GetTile(x-1,y).Discover();
             CheckTile(x - 1, y);
         }
         if (tiles.HasTile(x, y + 1))
         {
+            tiles.GetTile(x,y+1).Discover();
             CheckTile(x, y + 1);
         }
         if (tiles.HasTile(x, y - 1))
         {
+            tiles.GetTile(x,y-1).Discover();
             CheckTile(x, y - 1);
         }
 

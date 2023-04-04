@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour
 
 
     private int face;
+    private bool isDiscovered = false;
     private bool destroyed = false;
     private bool showParticles = false;
     private bool isCountingDown = false;
@@ -21,7 +22,7 @@ public class Tile : MonoBehaviour
     private SpriteRenderer r;
     private Vector2 globalPosition;
     private ParticleSystem particles;
-    // private TileParticleSystem particles;
+    // public TileParticleSystem particles;
 
     void Start()
     {
@@ -54,6 +55,8 @@ public class Tile : MonoBehaviour
             Blackboard.DestroyTile(this);
             this.Deactivate();
             this.Destroyed();
+            FindObjectOfType<AudioManager>().Play("TileBreaking1", 1.0f, 2.0f);
+
             CreateItem();
         }
 
@@ -64,8 +67,8 @@ public class Tile : MonoBehaviour
     }
 
     private void CreateItem() {
-        int r = getRandomInt(1, 2);
-        for(int i = 0; i < r; i++) {
+        int r = getRandomInt(0, 1);
+        for(int i = 0; i <= r; i++) {
             Instantiate(itemPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }
     }
@@ -99,11 +102,24 @@ public class Tile : MonoBehaviour
     {
         // StartCoroutine(particles.BurstRoutine());
         // particles.Burst();
-        isCountingDown = true;
+        if(!isCountingDown) {
+            isCountingDown = true;
+            FindObjectOfType<AudioManager>().Play("Mining1");
+        }
         slider.gameObject.SetActive(true);
 
         SetSliderPosition(direction);
         current_time -= Time.deltaTime;
+
+        // int intervals = 4;
+        // float curr = current_time / intervals;
+        // float i = curr*intervals;
+
+        // if(current_time < i) {
+        //     FindObjectOfType<AudioManager>().PlayWithRandomPitch("Mining1", 1.0f, 2.0f);
+        //     i -= curr;
+        // }
+
 
         float x = time - current_time;
         float val = x / time;
@@ -113,7 +129,10 @@ public class Tile : MonoBehaviour
 
     public void resetTimer()
     {
-        isCountingDown = false;
+        if(isCountingDown) {
+            isCountingDown = false;
+            FindObjectOfType<AudioManager>().Pause("Mining1");
+        }
         slider.value = 0;
         if (slider.IsActive())
         {
@@ -141,6 +160,28 @@ public class Tile : MonoBehaviour
     public int getFace()
     {
         return face;
+    }
+
+    public void Discover() {
+        if(this.gameObject.name.Contains("Gold") && !isDiscovered) {
+            int a = getRandomInt(0,2);
+            if(a == 0) {
+                FindObjectOfType<AudioManager>().Play("FoundGold1");
+            }
+            else {
+                FindObjectOfType<AudioManager>().Play("FoundGold2");
+            }
+        }
+        else if(this.gameObject.name.Contains("Iron") && !isDiscovered) {
+            int a = getRandomInt(0,2);
+            if(a == 0) {
+                FindObjectOfType<AudioManager>().Play("FoundIron1");
+            }
+            else {
+                FindObjectOfType<AudioManager>().Play("FoundIron2");
+            }
+        }
+        isDiscovered = true;
     }
 
     public bool IsOutOfView(Vector2 pos, int viewPortWidth, int viewPortHeight)

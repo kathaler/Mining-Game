@@ -151,10 +151,10 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Item") {
             print(collision.gameObject.name);
             if(collision.gameObject.name == "GoldItem(Clone)") {
-                FindObjectOfType<AudioManager>().PlayWithRandomPitch("GoldCollected", 1.5f, 1.7f);
+                FindObjectOfType<AudioManager>().Play("GoldCollected", 1.5f, 1.7f);
             }
             else {
-                FindObjectOfType<AudioManager>().PlayWithRandomPitch("ItemCollected", 1.1f, 2.5f);
+                FindObjectOfType<AudioManager>().Play("ItemCollected", 1.5f, 3.5f);
             }
             inventory.Add(collision.gameObject.GetComponent<ItemManagerBeta>().getItem());
             inventory.PrintInventory();
