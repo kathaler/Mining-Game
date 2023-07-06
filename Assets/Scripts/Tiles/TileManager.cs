@@ -19,6 +19,7 @@ public class TileManager : MonoBehaviour
     public float stoneProb;
     public float ironProb;
     public float goldProb;
+    public float coalProb;
 
     // Coordinates of the top-left tile in the viewport
     private int viewportBottom;
@@ -244,6 +245,10 @@ public class TileManager : MonoBehaviour
         {
             return "Iron";
         }
+        else if (rand < stoneProb + ironProb + coalProb) 
+        {
+            return "Coal";
+        }
         else
         {
             return "Gold";
@@ -272,6 +277,10 @@ public class TileManager : MonoBehaviour
             else if (type.Equals("Gold"))
             {
                 newTile = Instantiate(tilePrefabs[2], new Vector3(x, y, 1), Quaternion.identity);
+            }
+            else if (type.Equals("Coal"))
+            {
+                newTile = Instantiate(tilePrefabs[3], new Vector3(x, y, 1), Quaternion.identity);
             }
         }
 

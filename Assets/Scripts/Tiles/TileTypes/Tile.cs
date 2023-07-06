@@ -166,19 +166,19 @@ public class Tile : MonoBehaviour
         if(this.gameObject.name.Contains("Gold") && !isDiscovered) {
             int a = getRandomInt(0,2);
             if(a == 0) {
-                FindObjectOfType<AudioManager>().Play("FoundGold1");
+                FindObjectOfType<AudioManager>().Play("FoundGold1", 0.8f, 1.2f);
             }
             else {
-                FindObjectOfType<AudioManager>().Play("FoundGold2");
+                FindObjectOfType<AudioManager>().Play("FoundGold2", 0.8f, 1.2f);
             }
         }
         else if(this.gameObject.name.Contains("Iron") && !isDiscovered) {
             int a = getRandomInt(0,2);
             if(a == 0) {
-                FindObjectOfType<AudioManager>().Play("FoundIron1");
+                FindObjectOfType<AudioManager>().Play("FoundIron1", 0.8f, 1.2f);
             }
             else {
-                FindObjectOfType<AudioManager>().Play("FoundIron2");
+                FindObjectOfType<AudioManager>().Play("FoundIron2", 0.8f, 1.2f);
             }
         }
         isDiscovered = true;
