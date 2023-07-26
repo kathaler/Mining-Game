@@ -102,7 +102,22 @@ public class Player : MonoBehaviour
 
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+    }
 
+    public void SavePlayer()  {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer () {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        Vector3 pos;
+        pos.x = data.position[0];
+        pos.y = data.position[1];
+        pos.z = data.position[2];
+
+        movePoint.position = pos;
+        transform.position = pos;
     }
 
     public int GetOrientation() {
