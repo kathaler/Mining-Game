@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer playerSprite;
 
+    public GameObject torch;
+
 
     private void Start()
     {
@@ -34,6 +36,11 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SpawnTorch();
+        }
+
         up.setPosition(this.transform.position.x, this.transform.position.y + 1);
         down.setPosition(this.transform.position.x, this.transform.position.y - 1);
         left.setPosition(this.transform.position.x - 1, this.transform.position.y);
@@ -106,6 +113,10 @@ public class Player : MonoBehaviour
 
     public void SavePlayer()  {
         SaveSystem.SavePlayer(this);
+    }
+
+    private void SpawnTorch() {
+        Instantiate(torch, transform.position, Quaternion.identity);
     }
 
     public void LoadPlayer () {

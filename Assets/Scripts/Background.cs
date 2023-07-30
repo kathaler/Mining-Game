@@ -38,18 +38,18 @@ public class Background : MonoBehaviour
             UpdateBackground(0);
         }
         // moved left
-        if((int)(position.x - lastPos.x) <= -tileSize) {
+        if((int)(lastPos.x - position.x) == tileSize) {
             Debug.Log("LEFT");
             lastPos.x = position.x;
             UpdateBackground(1);
         }
-        if((int)(position.y - lastPos.y) >= tileSize) {
+        if((int)(position.y - lastPos.y) == tileSize) {
             Debug.Log("UP");
             lastPos.y = position.y;
             UpdateBackground(2);
         }
         // moved left
-        if((int)(position.y - lastPos.y) <= -tileSize) {
+        if((int)(lastPos.y - position.y) == tileSize) {
             Debug.Log("DOWN");
             lastPos.y = position.y;
             UpdateBackground(3);
