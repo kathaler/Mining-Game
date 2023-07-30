@@ -8,7 +8,11 @@ public class CameraController : MonoBehaviour
     public GameObject player;
     public float offsetSmoothing;
     private Vector3 playerPosition;
-    public GameObject background;
+    public float zoomSpeed = 2f;
+    public float upperBound = 10f;
+    public float lowerBound = 1f;
+    private Camera mainCamera;
+
 
     private Text stone;
     private Text iron;
@@ -18,9 +22,14 @@ public class CameraController : MonoBehaviour
 
 
     void Start() {
-        FindObjectOfType<AudioManager>().Play("Ambience1");
-        FindObjectOfType<AudioManager>().Play("testmusic");
+        // FindObjectOfType<AudioManager>().Play("Ambience1");
+        // FindObjectOfType<AudioManager>().Play("testmusic");
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+    }
 
+    void Update() {
+        HandleZoom();
     }
 
     // Update is called once per frame
@@ -28,6 +37,15 @@ public class CameraController : MonoBehaviour
     {
         playerPosition = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, playerPosition, offsetSmoothing * Time.deltaTime);
-        background.transform.position = new Vector3(transform.position.x, transform.position.y);
+
+    }
+
+    private void HandleZoom() {
+        Camera cam = GetComponent<Camera>();
+        if(cam.orthographicSize >= lowerBound && cam.orthographicSize <= upperBound) {
+            cam.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        }
+        if(cam.orthographicSize < lowerBound) cam.orthographicSize = lowerBound;
+        if(cam.orthographicSize > upperBound) cam.orthographicSize = upperBound;
     }
 }
